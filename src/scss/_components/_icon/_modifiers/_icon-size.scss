@@ -11,9 +11,9 @@
 	// THEME: Light.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include modifier(xs) {
-				height: $icon-size-xs;
-				width: $icon-size-xs;
+			@include modifier(xsm) {
+				height: $icon-size-xsm;
+				width: $icon-size-xsm;
 			}
 			@include modifier(sm) {
 				height: $icon-size-sm;

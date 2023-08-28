@@ -1,7 +1,7 @@
 {
     "icon": {
         "size": {
-            "xs": {
+            "xsm": {
                 "value": "12px",
                 "type": "sizing"
             },
