@@ -31,7 +31,7 @@
 					.sui-#{$block}__item {
 						padding-left: 0;
 						@include media(max-width, sm) {
-							padding-left: 27px;
+							padding-left: $checkbox-spacing-md;
 						}
 					}
 				}
@@ -39,9 +39,10 @@
 
 			@include element(item) {
 				margin: 0;
+				line-height: 1;
 
 				.sui-#{$block}__item {
-					padding-left: 27px;
+					padding-left: $checkbox-spacing-md;
 				}
 			}
 		}
