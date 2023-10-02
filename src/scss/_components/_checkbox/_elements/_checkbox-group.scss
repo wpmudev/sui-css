@@ -15,23 +15,24 @@
 			display: flex;
 			flex-direction: column;
 			gap: $spacing-md;
+			margin: 0;
 
 			@include modifier(inline) {
 				flex-direction: row;
 				gap: $spacing-xl;
 				flex-wrap: wrap;
 
-				@include media(max-width, md) {
+				@include media(max-width, sm) {
 					flex-direction: column;
+					gap: $spacing-md;
 				}
 
 				@include modifies-element(item) {
 					.sui-#{$block}__item {
 						padding-left: 0;
-					}
-
-					@include media(max-width, md) {
-						padding-left: 27px;
+						@include media(max-width, sm) {
+							padding-left: 27px;
+						}
 					}
 				}
 			}
