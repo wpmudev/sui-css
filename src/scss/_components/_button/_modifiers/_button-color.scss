@@ -198,6 +198,7 @@ $colors-high-contrast: (
 						} @else {
 							border-color: $value;
 							background: $value;
+							color: $color-extended-neutral-100;
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
