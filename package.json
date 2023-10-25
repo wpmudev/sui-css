@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-css",
   "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "license": "GPL-2.0",
   "keywords": [
     "incsub",
@@ -17,6 +17,16 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com"
+    },
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
     }
   ],
   "input": "./src",
@@ -27,6 +37,7 @@
   "files": [
     "dist"
   ],
+  "style": "dist/css/sui-css.css",
   "publishConfig": {
     "access": "public"
   },
@@ -35,26 +46,25 @@
     "url": "git+https://github.com/wpmudev/sui-css.git"
   },
   "scripts": {
-    "format-files": "clear && yarn prettier --write .",
+    "format-files": "clear && npm run prettier --write .",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
     "changelog": "npx lerna-changelog",
-    "clean": "clear && git restore .",
+    "clean": "rm -rf dist",
     "tokens": "style-dictionary build",
-    "build": "yarn tokens && gulp",
-    "prepare": "yarn clean && gulp",
-    "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
-    "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
-    "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
-    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI CSS Framework %s\" && npm publish"
+    "build": "npm run tokens && gulp",
+    "prepare": "npm run clean && gulp",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
+    "publish:patch": "npm run prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:minor": "npm run prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:major": "npm run prepare && npm version major -m \"📦️ SUI CSS Framework %s\" && npm publish"
   },
   "bugs": {
-    "url": "https://incsub.atlassian.net/browse/SUI"
+    "url": "https://github.com/wpmudev/sui-css"
   },
   "homepage": "https://github.com/wpmudev/sui-css#readme",
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@postcss-plugins/console": "^0.2.5",
@@ -111,5 +121,6 @@
       "documentation": "📝 Documentation",
       "internal": "🏠 Internal"
     }
-  }
+  },
+  "clean-package": "./postpack.config.json"
 }
